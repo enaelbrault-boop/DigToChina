@@ -2,6 +2,17 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local StarterPack = game:GetService("StarterPack")
+-- Argent des joueurs
+Players.PlayerAdded:Connect(function(player)
+    local leaderstats = Instance.new("Folder")
+    leaderstats.Name = "leaderstats"
+    leaderstats.Parent = player
+
+    local coins = Instance.new("IntValue")
+    coins.Name = "Pièces"
+    coins.Value = 0
+    coins.Parent = leaderstats
+end)
 
 local digEvent = ReplicatedStorage:FindFirstChild("DigBlock")
 
