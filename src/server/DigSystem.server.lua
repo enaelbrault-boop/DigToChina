@@ -107,7 +107,11 @@ digEvent.OnServerEvent:Connect(function(player, block)
         ["Terre"] = 2,
         ["Pierre"] = 5,
         ["Pierre dure"] = 10,
-        ["Pierre du noyau"] = 25
+        ["Pierre du noyau"] = 25,
+        ["Charbon"] = 5,
+        ["Fer"] = 12,
+        ["Or"] = 30,
+        ["Diamant"] = 100
     }
 
     local materialName = block:GetAttribute("MaterialName")
