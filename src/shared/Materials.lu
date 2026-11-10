@@ -1,0 +1,39 @@
+
+local Materials = {
+    Sand = {
+        Name = "Sable",
+        Hardness = 1,
+        Value = 1,
+        Color = Color3.fromRGB(194, 178, 128)
+    },
+
+    Dirt = {
+        Name = "Terre",
+        Hardness = 3,
+        Value = 2,
+        Color = Color3.fromRGB(101, 67, 33)
+    },
+
+    Stone = {
+        Name = "Pierre",
+        Hardness = 8,
+        Value = 5,
+        Color = Color3.fromRGB(100, 100, 100)
+    },
+
+    HardStone = {
+        Name = "Pierre dure",
+        Hardness = 15,
+        Value = 10,
+        Color = Color3.fromRGB(60, 60, 60)
+    },
+
+    CoreStone = {
+        Name = "Pierre du noyau",
+        Hardness = 30,
+        Value = 25,
+        Color = Color3.fromRGB(80, 30, 20)
+    }
+}
+
+return Materials
