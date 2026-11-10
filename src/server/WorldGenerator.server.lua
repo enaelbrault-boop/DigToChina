@@ -45,6 +45,41 @@ for _, material in ipairs(Materials) do
                 block.BottomSurface = Enum.SurfaceType.Smooth
                 block:SetAttribute("MaterialName", material.Name)
                 block:SetAttribute("Hardness", material.Hardness)
+                
+-- Apparition aléatoire des minerais
+if material.Name == "Pierre" or material.Name == "Pierre dure" then
+    local roll = math.random(1, 1000)
+
+    local oreName = nil
+    local oreColor = nil
+    local oreHardness = nil
+
+    if roll <= 40 then
+        oreName = "Charbon"
+        oreColor = Color3.fromRGB(35, 35, 35)
+        oreHardness = 3
+    elseif roll <= 65 then
+        oreName = "Fer"
+        oreColor = Color3.fromRGB(190, 130, 100)
+        oreHardness = 5
+    elseif roll <= 75 then
+        oreName = "Or"
+        oreColor = Color3.fromRGB(255, 200, 20)
+        oreHardness = 8
+    elseif roll <= 78 then
+        oreName = "Diamant"
+        oreColor = Color3.fromRGB(40, 230, 255)
+        oreHardness = 12
+    end
+
+    if oreName then
+        block.Name = oreName
+        block.Color = oreColor
+        block:SetAttribute("MaterialName", oreName)
+        block:SetAttribute("Hardness", oreHardness)
+    end
+end
+
                 block.Parent = world
             end
         end
