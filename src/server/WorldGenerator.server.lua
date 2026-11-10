@@ -4,12 +4,13 @@ local Workspace = game:GetService("Workspace")
 local BLOCK_SIZE = 6
 local MAP_SIZE = 11
 
+
 local Materials = {
-    {Name = "Sable", Depth = 2, Color = Color3.fromRGB(194, 178, 128)},
-    {Name = "Terre", Depth = 4, Color = Color3.fromRGB(101, 67, 33)},
-    {Name = "Pierre", Depth = 4, Color = Color3.fromRGB(100, 100, 100)},
-    {Name = "Pierre dure", Depth = 3, Color = Color3.fromRGB(60, 60, 60)},
-    {Name = "Pierre du noyau", Depth = 3, Color = Color3.fromRGB(80, 30, 20)}
+    {Name = "Sable", Depth = 2, Hardness = 1, Color = Color3.fromRGB(194, 178, 128)},
+    {Name = "Terre", Depth = 4, Hardness = 3, Color = Color3.fromRGB(101, 67, 33)},
+    {Name = "Pierre", Depth = 4, Hardness = 8, Color = Color3.fromRGB(100, 100, 100)},
+    {Name = "Pierre dure", Depth = 3, Hardness = 15, Color = Color3.fromRGB(60, 60, 60)},
+    {Name = "Pierre du noyau", Depth = 3, Hardness = 30, Color = Color3.fromRGB(80, 30, 20)}
 }
 
 local oldWorld = Workspace:FindFirstChild("DigToChinaWorld")
@@ -43,6 +44,7 @@ for _, material in ipairs(Materials) do
                 block.TopSurface = Enum.SurfaceType.Smooth
                 block.BottomSurface = Enum.SurfaceType.Smooth
                 block:SetAttribute("MaterialName", material.Name)
+                block:SetAttribute("Hardness", material.Hardness)
                 block.Parent = world
             end
         end
