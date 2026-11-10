@@ -1,0 +1,34 @@
+
+name: Build DigToChina
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download project
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Rojo
+        run: cargo install rojo --version 7.7.1 --locked
+
+      - name: Build Roblox game
+        run: rojo build default.project.json --output DigToChina.rbxlx
+
+      - name: Save Roblox file
+        uses: actions/upload-artifact@v4
+        with:
+          name: DigToChina
+          path: DigToChina.rbxlx
