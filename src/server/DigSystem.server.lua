@@ -102,9 +102,27 @@ digEvent.OnServerEvent:Connect(function(player, block)
     block:SetAttribute("Health", health)
 
     if health <= 0 then
-        block:Destroy()
-        print(player.Name .. " a creusé un bloc !")
+    local rewards = {
+        ["Sable"] = 1,
+        ["Terre"] = 2,
+        ["Pierre"] = 5,
+        ["Pierre dure"] = 10,
+        ["Pierre du noyau"] = 25
+    }
+
+    local materialName = block:GetAttribute("MaterialName")
+    local reward = rewards[materialName] or 1
+
+    local coins = player:FindFirstChild("leaderstats")
+        and player.leaderstats:FindFirstChild("Pièces")
+
+    if coins then
+        coins.Value += reward
     end
+
+    block:Destroy()
+    print(player.Name .. " gagne " .. reward .. " pièces !")
+end
 end)
 
 Players.PlayerRemoving:Connect(function(player)
